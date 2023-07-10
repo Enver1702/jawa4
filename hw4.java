@@ -33,7 +33,33 @@ public class hw4
             gender.add(sb[4] == "M");
             index.add(i);
         }
+    LinkedList<Integer> linkId = new LinkedList<Integer>();
+        int count = 0;
+        for(String f: fio){
+            System.out.println(f);
+            linkId.add(count);
+            count++;
+        }
+        int cnt = linkId.size()-1;
+        while (cnt > -1) {
+            int maxAge = age.get(linkId.get(cnt));
+            int index = cnt;
+            for (int i = 0; i < cnt; i++) {
+                if (maxAge < age.get(linkId.get(i))) {
+                    maxAge = age.get(linkId.get(i));
+                    index = i;
+                }
+            }
 
+            int tmp = linkId.get(cnt);
+            linkId.set(cnt, linkId.get(index));
+            linkId.set(index, tmp);
+            cnt--;
+        }
+        System.out.println(linkId);
+        linkId.forEach(n -> System.out.println(String.format("%1$s %2$s",fio.get(n),age.get(n))));
+
+    
 
         for (int i = 0; i < index.size(); i++) {
             System.out.printf(family.get(i));
