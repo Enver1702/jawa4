@@ -1,0 +1,49 @@
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class hw6 {
+    private static final HashMap<Integer, Object> hMap = new HashMap<>();
+    private static final Object OBJ = new Object();
+    public static void main(String[] args) {
+        addToHMap(0);
+        addToHMap(7);
+        addToHMap(34);
+        addToHMap(11);
+        addToHMap(45);
+        addToHMap(18);
+        addToHMap(91);
+        addToHMap(36);
+        addToHMap(17);
+        addToHMap(52);
+        System.out.println(isEmpty());
+
+        printConsole();
+        System.out.println();
+        try {
+            System.out.println(printOneEl(20));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void addToHMap(Integer number){
+        hMap.put(number, OBJ);
+    }
+
+
+    private static boolean isEmpty(){
+        return hMap.isEmpty();
+    }
+
+
+    private static void printConsole(){
+        for (Integer integer : hMap.keySet()) {
+            System.out.print(integer + " ");
+        }
+    }
+
+
+    private static int printOneEl(int index){
+        return (Integer)hMap.keySet().toArray()[index];
+    }
+}
